@@ -73,7 +73,7 @@ for ($i=1; $i<=count($section); $i++){
     $rand_keys = array_rand($section, $i);
 
 
-    var_dump($rand_keys);exit();
+    //var_dump($rand_keys);exit();
 
 }
 //

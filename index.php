@@ -1,7 +1,7 @@
 <?php
 
 $section = file('/usr/share/dict/american-english');
-const CONSTANT = 10000;
+const CONSTANT = 100000;
 class addFile{
 
     public function loadfile($filename)
@@ -28,6 +28,25 @@ class addFile{
         fclose($fp);
     }
 
+//    public function comparsionArrFin($filename){
+//
+//        $millisecondsSt = round(microtime(true) * 10000);
+//
+//        $fp = fopen('resultFile.txt', 'a+');
+//
+//        for ($i=1; $i<=count($filename); $i++){
+//        $res = addFile::comparsionArr($filename);
+//        fwrite($fp, $res);
+//        }
+//        fclose($fp);
+//
+//        $millisecondsF = round(microtime(true) * 10000);
+//
+//        $res = $millisecondsF - $millisecondsSt;
+//        print_r($res/10000);
+//
+//    }
+
     public static function addTo(){
 
         global $section;
@@ -53,6 +72,9 @@ class addFile{
 
         $arr1 = file($filename);
         $arr2 = addFile::sortSt('reference.txt');
+
+//        $countarr1 = count($arr1);
+//        $countarr2 = count($arr2);
 
         $fp = fopen('resultFile.txt', 'a+');
 
@@ -184,3 +206,58 @@ class addFile{
     }
 }
 addFile::comparsionArr('file1.txt');
+//
+//
+//
+//$arr1 = file('file1.txt');
+//$arr2 = file('reference.txt');
+//$arr = array_diff($arr1, $arr2);
+//echo $arr;
+//
+//$countarr1 = count($arr1);
+//$countarr2 = count($arr2);
+//
+//$fp = fopen('resultFile.txt', 'a+');
+//
+//for ($i = 0; $i < $countarr1; $i++) {
+//    for ($j = 0; $j < $countarr2; $j++) {
+//        if ($countarr1> $countarr2) {
+//
+//            $a =$arr2[$i];
+//            echo "<pre>";
+//            echo $a;
+//            echo "</pre>";
+//
+////            fwrite($fp, $a);
+//
+//            break;
+//
+//        }
+//    }
+//}
+//fclose($fp);
+
+
+
+
+
+//$arr = file('file1.txt');
+
+//class A{
+//
+//    public function quickSort() {
+//        $arr1 = file('file1.txt');
+//        $arr2 = file('reference.txt');
+//
+//$a = (string) $out;
+//        foreach( $arr1 as $word )
+//        {
+//            if( ! in_array( $word, $arr2 ) )
+//                $a .= $word;
+//        }
+//        echo "<pre>";
+//        echo $a;
+//        echo "</pre>";
+//    }
+//}
+//$reuslt = A::quickSort();

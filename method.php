@@ -1,8 +1,8 @@
 <?php
 
 $section = file('/usr/share/dict/american-english');
-const RECORD = 100000;
-const REF = 200;
+const RECORD = 10;
+const REF = 2;
 //class add extends methodFile {
 //    public function comparsionArr($filename){
 //

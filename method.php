@@ -1,7 +1,7 @@
 <?php
 
 $section = file('/usr/share/dict/american-english');
-const RECORD = 10;
+const RECORD = 100;
 const REF = 2;
 //class add extends methodFile {
 //    public function comparsionArr($filename){
@@ -46,6 +46,7 @@ class methodFile
 {
     public function loadfile($filename)
     {
+        $millisecondsSt = round(microtime(true) * 10000);
         $fp = fopen($filename, 'a+');
 
         for ($i = 1; $i <= RECORD; $i++) {
@@ -53,6 +54,10 @@ class methodFile
             fwrite($fp, $saveFile);
         }
         fclose($fp);
+        $millisecondsF = round(microtime(true) * 10000);
+        $res = $millisecondsF - $millisecondsSt;
+        print_r($res/10000);
+
 
     }
 
@@ -61,9 +66,9 @@ class methodFile
 
         $fp = fopen($filename, 'a+');
         for ($i = 1; $i <= REF; $i++) {
-            $saveFile = self::comparsion('file/file1.txt');
+            $saveFile = self::comparsion('file/file3.txt');
             fwrite($fp, $saveFile);
-            $saveFile = self::comparsion('file/file2.txt');
+            $saveFile = self::comparsion('file/file4.txt');
             fwrite($fp, $saveFile);
         }
         fclose($fp);
@@ -73,7 +78,7 @@ class methodFile
     {
 
         global $section;
-        $r = rand(2, 3);
+        $r = rand(10, 20);
         $rand_keys = array_rand($section, $r);
         foreach ($rand_keys as $key => $value) {
             $arr[] = trim($section[$rand_keys[$key]], "\n");
@@ -190,4 +195,4 @@ class methodFile
     }
 }
 
-//methodFile::comparsionArr('file1.txt');
+//methodFile::run('file/reference.txt');

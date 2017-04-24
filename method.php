@@ -154,5 +154,3 @@ class methodFile
         return $arr;
     }
 }
-
-//methodFile::run('file/reference.txt');

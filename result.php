@@ -82,4 +82,6 @@ class add extends methodFile {
 
     }
 }
-add::comparsionArrHash('file/file1.txt');
+$obj = new add();
+$obj->comparsionArrDiff('file/file1.txt');
+//add::comparsionArr('file/file1.txt');

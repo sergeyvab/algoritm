@@ -1,46 +1,8 @@
 <?php
 
-$section = file('/usr/share/dict/american-english');
 const RECORD = 100000;
 const REF = 200;
-//class add extends methodFile {
-//    public function comparsionArr($filename){
-//
-//        $millisecondsSt = round(microtime(true) * 10000);
-//
-//        $arr1 = add::sortSt($filename);
-//        $arr2 = file('reference.txt');
-//
-//        $fp = fopen('resultFile.txt', 'a+');
-//
-//        $a = '';
-//        foreach( $arr1 as $word )
-//        {
-//            if( ! in_array( $word, $arr2 ) )
-//                $a .= $word;
-//        }
-//        fwrite($fp, $a);
-//
-////        for ($i = 0; $i < $countarr1; $i++) {
-////            for ($j = 0; $j < $countarr2; $j++) {
-////                if ($arr2[$j] == $arr1[$i]) {
-////
-////                    $a =$arr1[$i];
-////
-////                    fwrite($fp, $a);
-////
-////                    break;
-////
-////                }
-////            }
-////        }
-//        fclose($fp);
-//        $millisecondsF = round(microtime(true) * 10000);
-//        $res = $millisecondsF - $millisecondsSt;
-//        print_r($res/10000);
-//
-//    }
-//}
+$section = file('/usr/share/dict/american-english');
 
 class methodFile
 {
@@ -57,13 +19,10 @@ class methodFile
         $millisecondsF = round(microtime(true) * 10000);
         $res = $millisecondsF - $millisecondsSt;
         print_r($res/10000);
-
-
     }
 
     public function run($filename)
     {
-
         $fp = fopen($filename, 'a+');
         for ($i = 1; $i <= REF; $i++) {
             $saveFile = self::comparsion('file/file1.txt');
@@ -76,13 +35,13 @@ class methodFile
 
     public static function addTo()
     {
-
         global $section;
         $r = rand(10, 20);
         $rand_keys = array_rand($section, $r);
         foreach ($rand_keys as $key => $value) {
             $arr[] = trim($section[$rand_keys[$key]], "\n");
         }
+
         $result = implode(" ", $arr) . "\n";
 
         return $result;
@@ -95,7 +54,8 @@ class methodFile
         return $str;
     }
 
-    public static function sortSt($filename){
+    public static function sortSt($filename)
+    {
         $fp = fopen($filename, "a");
         $arr = file($filename);
         sort($arr);
@@ -108,7 +68,7 @@ class methodFile
         return $arr;
     }
 
-    function insertSort($filename) {
+    public function insertSort($filename) {
         $arr = file($filename);
         $count = count($arr);
         if ($count <= 1) {
@@ -129,7 +89,7 @@ class methodFile
         return $arr;
     }
 
-    private function sort($filename){
+    public function sort($filename){
 
         $arr1 = file($filename);
 
@@ -168,7 +128,7 @@ class methodFile
         return $array;
 
     }
-    function selectSort($filename) {
+    public function selectSort($filename) {
         $arr = file($filename);
         $count= count($arr);
         if ($count <= 1){

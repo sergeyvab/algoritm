@@ -73,11 +73,13 @@ class add extends methodFile {
 
         $fp = fopen('file/resultFileDiff.txt', 'a+');
 
-        $arr1 = add::sortSt($filename);
+        $arr1 =add::sortSt($filename);
         $arr2 = file('file/reference.txt');
         $result = array_diff($arr1, $arr2);
+        $res1 = implode(" ", $result)."\n";
+        //echo $res1;
 
-        fwrite($fp, $result);
+        fwrite($fp, $res1);
         fclose($fp);
         $millisecondsF = round(microtime(true) * 10000);
         $res = $millisecondsF - $millisecondsSt;
@@ -85,4 +87,4 @@ class add extends methodFile {
 
     }
 }
-add::comparsionArrDiff('file/file1.txt');
+add::comparsionArrHash('file/file1.txt');

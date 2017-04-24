@@ -1,8 +1,8 @@
 <?php
 
 $section = file('/usr/share/dict/american-english');
-const RECORD = 100;
-const REF = 2;
+const RECORD = 100000;
+const REF = 200;
 //class add extends methodFile {
 //    public function comparsionArr($filename){
 //
@@ -66,9 +66,9 @@ class methodFile
 
         $fp = fopen($filename, 'a+');
         for ($i = 1; $i <= REF; $i++) {
-            $saveFile = self::comparsion('file/file3.txt');
+            $saveFile = self::comparsion('file/file1.txt');
             fwrite($fp, $saveFile);
-            $saveFile = self::comparsion('file/file4.txt');
+            $saveFile = self::comparsion('file/file2.txt');
             fwrite($fp, $saveFile);
         }
         fclose($fp);

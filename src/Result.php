@@ -1,10 +1,15 @@
 <?php
-include 'method.php';
-class add extends methodFile {
+require_once'vendor/autoload.php';
+use Algoritm\Method;
+
+class Result extends Method {
     public function comparsionArr($filename){
 
+        //$obj = new Method();
+
         $arr1 = file($filename);
-        $arr2 = add::sortSt('file/reference.txt');
+//        $arr2 = $obj->sortSt('file/reference.txt');
+        $arr2 = self::sortSt('file/reference.txt');
 
         $fp = fopen('file/resultFile.txt', 'a+');
 
@@ -29,8 +34,10 @@ class add extends methodFile {
 
     public function comparsionArrHash($filename){
 
+        $obj = new Method();
+
         $arr1 = file($filename);
-        $arr2 = add::sortSt('file/reference.txt');
+        $arr2 = $obj->sortSt('file/reference.txt');
 
         $c = [];
         foreach ($arr2 as $key=>$value){
@@ -60,12 +67,12 @@ class add extends methodFile {
 
     public function comparsionArrDiff($filename){
 
-
+        $obj = new Method();
 
         $fp = fopen('file/resultFileDiff.txt', 'a+');
 
         $arr1 = file($filename);
-        $arr2 = add::sortSt('file/reference.txt');
+        $arr2 = $obj->sortSt('file/reference.txt');
 
         $millisecondsSt = round(microtime(true) * 10000);
 
@@ -82,6 +89,6 @@ class add extends methodFile {
 
     }
 }
-$obj = new add();
-$obj->comparsionArrDiff('file/file1.txt');
-//add::comparsionArr('file/file1.txt');
+
+$res = new Result();
+$res->comparsionArr('file/file2.txt');

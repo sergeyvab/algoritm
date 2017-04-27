@@ -5,10 +5,7 @@ use Algoritm\Method;
 class Result extends Method {
     public function comparsionArr($filename){
 
-        //$obj = new Method();
-
         $arr1 = file($filename);
-//        $arr2 = $obj->sortSt('file/reference.txt');
         $arr2 = self::sortSt('file/reference.txt');
 
         $fp = fopen('file/resultFile.txt', 'a+');
@@ -91,4 +88,4 @@ class Result extends Method {
 }
 
 $res = new Result();
-$res->comparsionArr('file/file2.txt');
+$res->comparsionArrDiff('file/file1.txt');
